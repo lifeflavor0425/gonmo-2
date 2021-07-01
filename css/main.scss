@@ -1,0 +1,72 @@
+@import "/css/common.scss";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/* content */
+.content {
+	position: relative;
+	margin-top: 100px;
+	width: 100%;
+	background-image: url("../images/클라우드.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+	>.inner {
+		height: 600px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.medal {
+		perspective: 600px;
+		width: 600px;
+		height: 600px;
+		.front {
+			width: 600px;
+			height: 600px;
+			backface-visibility: hidden;
+			transition: 1s;
+			position: absolute;
+			transform: rotateY(0deg);
+		}
+		.back {
+			width: 600px;
+			height: 600px;
+			backface-visibility: hidden;
+			transition: 1s;
+			position: absolute;
+			transform: rotateY(-180deg);
+			.btn{
+				background-color: rgba(royalblue, .5);
+				&.btn-primary{
+					position: absolute;
+					bottom: 150px;
+					left: 0px;
+					right: 0px;
+					margin: auto;
+				}
+				// &.btn-warning{
+				// 	position: absolute;
+				// 	top: 150px;
+				// 	left: 30px;
+				// 	right: 70px;
+				// 	margin: auto;
+				// }
+			}
+		}
+		&:hover
+     {
+			.front {
+				transform: rotateY(180deg);
+			}
+			.back {
+				transform: rotateY(0deg);
+			}
+		}
+	}
+}
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

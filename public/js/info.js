@@ -11,5 +11,5 @@ class User {
 }
 
 
-let username=document.querySelector('#username').innerHTML
-console.log(username)
+let username=document.querySelector('#username')
+console.log(username.nodeValue)

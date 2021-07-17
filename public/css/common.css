@@ -1,0 +1,142 @@
+body {
+	color: black;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.4;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+img {
+	display: block;
+}
+a {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+	color: #b40486;
+}
+a:active {
+	text-decoration: none;
+	color: #b40486;
+}
+.inner {
+	margin: 0 auto;
+	width: 1100px;
+	position: relative;
+}
+.logo {
+	color: #b40486;
+	font-weight: 700;
+	height: 10px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	font-size: 30px;
+	font-family: 'Great Vibes', cursive;
+}
+.btn {
+	width: 130px;
+	padding: 10px;
+	border: 2px solid #333;
+	border-radius: 4px;
+	color: #333;
+	font-size: 16px;
+	font-weight: 700;
+	text-align: center;
+	cursor: pointer;
+	box-sizing: border-box;
+	display: block;
+	transition: 0.4s;
+}
+/* HEADER */
+header {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	background-color: #281365;
+	z-index: 1;
+}
+header > .inner {
+	height: 100px;
+}
+header .inner div {
+	background-image: url("/images/구름2.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 220px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	justify-content: center;
+	align-items: center;
+}
+header .logo {
+	margin-left: 40px;
+	margin-bottom: 57px;
+}
+/* FOOTER */
+footer {
+	position: relative;
+	bottom: 0;
+	margin: auto;
+	background-color: orange;
+	border-top: 1px solid #333;
+	height: 200px;
+}
+footer .inner {
+	background-color: #fff;
+	padding: 40px 0 60px 0;
+}
+footer .menu {
+	display: flex;
+	justify-content: center;
+}
+footer .menu li {
+	position: relative;
+}
+footer .menu li::before {
+	content: "";
+	width: 3px;
+	height: 3px;
+	background-color: #555;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: -1px;
+	margin: auto;
+}
+footer .menu li:last-child:before {
+	display: none;
+}
+footer .menu li a {
+	color: #ccc;
+	font-size: 12px;
+	font-weight: 700;
+	padding: 15px;
+	display: block;
+}
+footer .menu li a.pink {
+	color: #b40486;
+}
+footer .info {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+	text-align: center;
+}
+footer .info span {
+	margin-right: 20px;
+	color: #999;
+	font-size: 12px;
+}
+footer .info span:last-child {
+	margin-right: 0;
+}

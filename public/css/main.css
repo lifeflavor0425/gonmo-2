@@ -1,0 +1,59 @@
+@import "/css/common.css";
+/* content */
+ .content {
+	 position: relative;
+	 margin-top: 100px;
+	 width: 100%;
+	 background-image: url("/images/클라우드.jpg");
+	 background-repeat: no-repeat;
+	 background-position: center;
+	 background-attachment: fixed;
+	 background-size: cover;
+}
+ .content > .inner {
+	 height: 600px;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+ .content .medal {
+	 perspective: 600px;
+	 width: 600px;
+	 height: 600px;
+}
+ .content .medal .front {
+	 width: 600px;
+	 height: 600px;
+	 backface-visibility: hidden;
+	 transition: 1s;
+	 position: absolute;
+	 transform: rotateY(0deg);
+}
+ .content .medal .back {
+	 width: 600px;
+	 height: 600px;
+	 backface-visibility: hidden;
+	 transition: 1s;
+	 position: absolute;
+	 transform: rotateY(-180deg);
+}
+ .content .medal .back .btn {
+	 background-color: rgba(65, 105, 225, .5);
+	 
+}
+ .content .medal .back .btn.btn-login {
+	 position: absolute;
+	 bottom: 150px;
+	 left: 0px;
+	 right: 0px;
+	 margin: auto;
+	 color: #fff;
+	 border-color:rgba(65, 105, 225, .5);
+}
+ .content .medal:hover .front {
+	 transform: rotateY(180deg);
+}
+ .content .medal:hover .back {
+	 transform: rotateY(0deg);
+}
+ 

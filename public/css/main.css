@@ -4,7 +4,8 @@
 	 position: relative;
 	 margin-top: 100px;
 	 width: 100%;
-	 background-image: url("/images/클라우드.jpg");
+	 background-color:#f6f5ef;;
+	 /* background-image: url("/images/클라우드.jpg"); */
 	 background-repeat: no-repeat;
 	 background-position: center;
 	 background-attachment: fixed;
@@ -20,26 +21,51 @@
 	 perspective: 600px;
 	 width: 600px;
 	 height: 600px;
+	 background-color: pink;
 }
  .content .medal .front {
-	 width: 600px;
-	 height: 600px;
+	 width: 300px;
+	 height: 300px;
+	 left: 0;
+	 right: 0;
+	 top: 0;
+	 bottom: 0;
+	 margin: auto;
+	 border-radius: 45%;
+	 border: #2d2926 solid 3px;
+	 background-color:#f6f5ef;
 	 backface-visibility: hidden;
 	 transition: 1s;
 	 position: absolute;
 	 transform: rotateY(0deg);
 }
+.content .medal .front .logo {
+	display: block;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 30px;
+	margin: auto;
+	width: 150px;
+}
  .content .medal .back {
-	 width: 600px;
-	 height: 600px;
+	 width: 300px;
+	 height: 300px;
+	 left: 0;
+	 right: 0;
+	 top: 0;
+	 bottom: 0;
+	 margin: auto;
+	 border-radius: 45%;
+	 border: #2d2926 solid 3px;
+	 background-color: #f6f5ef;
 	 backface-visibility: hidden;
 	 transition: 1s;
 	 position: absolute;
 	 transform: rotateY(-180deg);
 }
  .content .medal .back .btn {
-	 background-color: rgba(65, 105, 225, .5);
-	 
+	 background-color: #2d2926;
 }
  .content .medal .back .btn.btn-login {
 	 position: absolute;
@@ -48,7 +74,6 @@
 	 right: 0px;
 	 margin: auto;
 	 color: #fff;
-	 border-color:rgba(65, 105, 225, .5);
 }
  .content .medal:hover .front {
 	 transform: rotateY(180deg);

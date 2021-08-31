@@ -16,11 +16,11 @@ a:visited {
 }
 a:hover {
 	text-decoration: none;
-	color: #b40486;
+	color: #2d2926;
 }
 a:active {
 	text-decoration: none;
-	color: #b40486;
+	color: #2d2926;
 }
 .inner {
 	margin: 0 auto;
@@ -28,7 +28,7 @@ a:active {
 	position: relative;
 }
 .logo {
-	color: #b40486;
+	color: #2d2926;
 	font-weight: 700;
 	height: 10px;
 	position: absolute;
@@ -52,20 +52,24 @@ a:active {
 	box-sizing: border-box;
 	display: block;
 	transition: 0.4s;
+} 
+.line {
+	height: 10px;
+	background-color: #333;
 }
 /* HEADER */
 header {
 	position: fixed;
 	top: 0px;
 	width: 100%;
-	background-color: #281365;
+	background-color:#f6f5ef;
 	z-index: 1;
 }
 header > .inner {
 	height: 100px;
 }
 header .inner div {
-	background-image: url("/images/구름2.png");
+	/* background-image: url("/images/구름2.png"); */
 	background-repeat: no-repeat;
 	background-size: contain;
 	width: 220px;
@@ -73,6 +77,7 @@ header .inner div {
 	top: 0;
 	bottom: 0;
 	left: 0;
+	right: 0;
 	margin: auto;
 	justify-content: center;
 	align-items: center;
@@ -86,12 +91,12 @@ footer {
 	position: relative;
 	bottom: 0;
 	margin: auto;
-	background-color: orange;
+	background-color: #f6f5ef;;
 	border-top: 1px solid #333;
 	height: 200px;
 }
 footer .inner {
-	background-color: #fff;
+	background-color: #f6f5ef;;
 	padding: 40px 0 60px 0;
 }
 footer .menu {
@@ -123,7 +128,7 @@ footer .menu li a {
 	display: block;
 }
 footer .menu li a.pink {
-	color: #b40486;
+	color: #2d2926;
 }
 footer .info {
 	display: flex;

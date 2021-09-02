@@ -37,7 +37,7 @@ a:active {
 	left: 0;
 	margin: auto;
 	font-size: 30px;
-	font-family: 'Great Vibes', cursive;
+	font-family: 'ZCOOL KuaiLe', cursive;
 }
 .btn {
 	width: 130px;
@@ -59,7 +59,7 @@ a:active {
 }
 /* HEADER */
 header {
-	position: fixed;
+	position: relative;
 	top: 0px;
 	width: 100%;
 	background-color:#f6f5ef;

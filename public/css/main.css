@@ -2,9 +2,8 @@
 /* content */
  .content {
 	 position: relative;
-	 margin-top: 100px;
 	 width: 100%;
-	 background-color:#f6f5ef;;
+	 background-color:#f6f5ef;
 	 /* background-image: url("/images/클라우드.jpg"); */
 	 background-repeat: no-repeat;
 	 background-position: center;
@@ -19,9 +18,13 @@
 }
  .content .medal {
 	 perspective: 600px;
-	 width: 600px;
-	 height: 600px;
-	 background-color: pink;
+	 width: 300px;
+	 height: 300px;
+	 left: 0;
+	 right: 0;
+	 top: 0;
+	 bottom: 0;
+	 margin: auto;
 }
  .content .medal .front {
 	 width: 300px;
@@ -39,14 +42,13 @@
 	 position: absolute;
 	 transform: rotateY(0deg);
 }
-.content .medal .front .logo {
+.content .medal .front .images_black_box {
+	position: relative;
 	display: block;
 	left: 0;
 	right: 0;
-	top: 0;
-	bottom: 30px;
+	top: 50px;
 	margin: auto;
-	width: 150px;
 }
  .content .medal .back {
 	 width: 300px;
@@ -68,8 +70,8 @@
 	 background-color: #2d2926;
 }
  .content .medal .back .btn.btn-login {
-	 position: absolute;
-	 bottom: 150px;
+	 position: relative;
+	 top: 120px;
 	 left: 0px;
 	 right: 0px;
 	 margin: auto;

@@ -57,9 +57,20 @@ app.post('/loginAF', function (req, res) {
 app.post('/equalAF', function (req, res) {
   let body = req.body;
   console.log(body);
-  let email=body.equal_email;
-  let phone=body.equal_phone;
-   res.redirect('/list');
+  let email=[body.equal_email];
+  let phone=[body.equal_phone];
+  let sql = `select * from user_info where phone_number= ${phone}`;
+  console.log(sql);
+  const result= conn.query(sql, function(err, result) {
+    if(err) console.log('query is not excuted. 일치실패...\n' + err);
+    else if(result='') {
+        
+        console.log('empty...');
+    }
+    else res.redirect('/list');
+    
+    
+  });
 });
 
 app.listen(3000, () => console.log('Server is running on port 3000...'));

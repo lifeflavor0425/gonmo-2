@@ -30,15 +30,12 @@ app.get('/list', function (req, res) {
     let sql = 'SELECT * FROM user_info';    
     conn.query(sql, function (err, rows, fields) {
         if(err) console.log('query is not excuted. select fail...\n' + err);
-        else res.render('list.ejs', {list : rows});
+        else res.render('list', {list : rows});
     });
 });
 
-app.get('/login.ejs', function (req, res) {
-    res.render('login.ejs');
-});
 app.get('/login', function (req, res) {
-  res.render('login.ejs');
+  res.render('login');
 });
 
 app.post('/loginAF', function (req, res) {
@@ -50,25 +47,30 @@ app.post('/loginAF', function (req, res) {
     console.log(sql);
     conn.query(sql, params, function(err) {
         if(err) console.log('query is not excuted. insert fail...\n' + err);
-        else res.redirect('/login.ejs');
+        else res.redirect('/login');
     });
 });
 
 app.post('/equalAF', function (req, res) {
   let body = req.body;
   console.log(body);
-  let email=[body.equal_email];
   let phone=[body.equal_phone];
-  let sql = `select * from user_info where phone_number= ${phone}`;
+  let box=[body.equal_box];
+  let sql = `select * from user_info where phone_number= ${phone} AND box_number =${box}`;
   console.log(sql);
-  const result= conn.query(sql, function(err, result) {
+  const result= conn.query(sql, function(err, result ,field) {
     if(err) console.log('query is not excuted. 일치실패...\n' + err);
-    else if(result='') {
-        
-        console.log('empty...');
-    }
-    else res.redirect('/list');
     
+    else if(result.length != 0){ 
+        res.redirect('/list');
+     } 
+     else { 
+        res.write("<script>alert('login faild')</script>");
+        res.write("<script>window.location=\"/login\"</script>");
+ 
+         }
+     console.log(result.length);
+
     
   });
 });

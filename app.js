@@ -19,7 +19,26 @@ app.use(bodyParser.urlencoded({extended : false}));
 
 app.use(express.static(__dirname + '/public'));
 
-
+// AWS!!!!!!!!!!!!1
+const fs=require('fs');
+const AWS = require('aws-sdk');
+const id = ''; // 키 값
+const pw = ''; //  시크릿 키
+const bucket_name = ''; //버킷 이름
+const s3=new AWS.S3({
+  accessKeyId: id,
+  secretAccessKey: pw
+});
+const downloadFile=(fileName)=>{
+    const params ={
+      Bucket: bucket_name,
+      Key: 'test.mp4' //you want to file in s3 안에 있는 파일 이름
+    };
+    s3.getObject(params, function(err,data){
+      if(err){throw err;}
+      fs.writeFileSync(fileName, data.Body.toString());
+    });
+  };
 
 
 app.get('/', function (req, res) {
@@ -81,7 +100,10 @@ app.get('/report', function (req, res) {
     let sql = range_sql;    
     conn.query(sql, function (err, rows, fields) {
         if(err) console.log('query is not excuted. select fail...\n' + err);
-        else res.render('report', {report : rows});
+        else {
+            downloadFile('./public/videos/test.mp4');  //위치,파일 이름을 변경해서 받음! --> 상대주소로 쓰기!
+            res.render('report', {report : rows});
+        };
     });
 });
 

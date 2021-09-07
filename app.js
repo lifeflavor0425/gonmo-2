@@ -4,7 +4,7 @@ let app = express();
 let db_config = require(__dirname + '/config/database.js');
 let conn = db_config.init();
 let bodyParser = require('body-parser');
-
+let range_sql;
 
 db_config.connect(conn);
 
@@ -58,14 +58,15 @@ app.post('/equalAF', function (req, res) {
   let box=[body.equal_box];
   let sql = `select * from user_info where phone_number= ${phone} AND box_number =${box}`;
   console.log(sql);
+  range_sql=sql;  //전역변수 할당
   const result= conn.query(sql, function(err, result ,field) {
-    if(err) console.log('query is not excuted. 일치실패...\n' + err);
+    if(err) console.log('query is not excuted. 일치실패...\n' + err); //에러
     
     else if(result.length != 0){ 
-        res.redirect('/list');
+        res.redirect('/report');  //일치하는 sql 있을경우
      } 
      else { 
-        res.write("<script>alert('login faild')</script>");
+        res.write("<script>alert('login faild')</script>");  // 일치하는 sql 없을경우
         res.write("<script>window.location=\"/login\"</script>");
  
          }
@@ -74,5 +75,15 @@ app.post('/equalAF', function (req, res) {
     
   });
 });
+
+
+app.get('/report', function (req, res) {
+    let sql = range_sql;    
+    conn.query(sql, function (err, rows, fields) {
+        if(err) console.log('query is not excuted. select fail...\n' + err);
+        else res.render('report', {report : rows});
+    });
+});
+
 
 app.listen(3000, () => console.log('Server is running on port 3000...'));

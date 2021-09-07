@@ -4,11 +4,7 @@
 	 position: relative;
 	 width: 100%;
 	 background-color:#f6f5ef;
-	 /* background-image: url("/images/클라우드.jpg"); */
-	 background-repeat: no-repeat;
-	 background-position: center;
-	 background-attachment: fixed;
-	 background-size: cover;
+
 }
  .content > .inner {
 	 height: 600px;

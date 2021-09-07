@@ -1,0 +1,44 @@
+@import "/css/common.css";
+
+.content {
+  position: relative;
+  width: 100%;
+  background-color:#f6f5ef;
+
+}
+
+.content > .inner {
+  position: relative;
+  height: 700px;
+}
+.content .inner .user_info {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 500px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.content .inner .user_info .logo{
+  display: block;
+  position: relative;
+  height: 30px;
+  margin-bottom: 5px; 
+  margin-left: 0;
+}
+.content .inner .video {
+  margin: 20px;
+}
+.content .inner .video video{
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+

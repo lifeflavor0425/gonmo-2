@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
   
-  <link defer rel="stylesheet" href="/css/main.css">
+  <link defer rel="stylesheet" href="/css/report.css">
 </head>
 <body>
 
@@ -31,11 +31,24 @@
   
   <!-- content -->
   <section>
+    <div class="content">
+      <div class="inner">
+        <ul class="user_info">
+          <% for(i=0; i< 1; i++){  %>
+          <li class="logo" >USER: <%=report[i].user_name%> </li>
+          <li class="logo">BOX_NUMBER: <%=report[i].box_number%> </li>
+          <li class="logo">PHONE_NUMBER: <%=report[i].phone_number%> </li>
+          <% } %>
+        </ul>
+        <div class="video">
+          <video width="560" height="315" controls>
+            <source src="/videos/v-test.mp4" type="video/mp4">
+            
+          </video>
 
-
-
-
-
+        </div>
+      </div>
+    </div>
   </section>
 
 

@@ -19,39 +19,63 @@ app.use(bodyParser.urlencoded({extended : false}));
 
 app.use(express.static(__dirname + '/public'));
 
-// AWS!!!!!!!!!!!!1
-const fs=require('fs');
-const AWS = require('aws-sdk');
-const id = ''; // 키 값
-const pw = ''; //  시크릿 키
-const bucket_name = ''; //버킷 이름
-const s3=new AWS.S3({
-  accessKeyId: id,
-  secretAccessKey: pw
-});
-const downloadFile=(fileName)=>{
-    const params ={
-      Bucket: bucket_name,
-      Key: 'test.mp4' //you want to file in s3 안에 있는 파일 이름
-    };
-    s3.getObject(params, function(err,data){
-      if(err){throw err;}
-      fs.writeFileSync(fileName, data.Body.toString());
+
+
+
+//PYTHON !!!
+let runPy = new Promise(function(success, nosuccess) {
+
+    const { spawn } = require('child_process');
+    const pyprog = spawn('python', ['./public/python/test.py']);
+
+    pyprog.stdout.on('data', function(data) {
+
+        success(data);
     });
-  };
+
+    pyprog.stderr.on('data', (data) => {
+
+        nosuccess(data);
+    });
+});
+
+//test!!!
+app.get('/list', (req, res) => {
+    console.log(runPy);
+    if(runPy=1){   //나중에 upload aws 로 바꾸기
+        res.redirect('/'); // 홈으로 가기
+    }
+});
+
+
+// AWS!!!!!!!!!!!!1
+// const fs=require('fs');
+// const AWS = require('aws-sdk');
+// const id = 'AKIAXU3SCGJX3KBU42EI'; // 키 값
+// const pw = 'M36CFGm1CeW2LHIaNbdh0zyn7JXcqRsFOrLK7mr/'; //  시크릿 키
+// const bucket_name = 'lifeflavor'; //버킷 이름
+// const s3=new AWS.S3({
+//   accessKeyId: id,
+//   secretAccessKey: pw
+// });
+
+//다운로드
+// const downloadFile=(fileName)=>{
+//     const params ={
+//       Bucket: bucket_name,
+//       Key: 'kakao.mp4', //you want to file in s3 안에 있는 파일 이름
+//     };
+//     s3.getObject(params, function(err,data){
+//       if(err){throw err;}
+//       fs.writeFileSync(fileName, data.Body.toString());
+//     });
+//   };
 
 
 app.get('/', function (req, res) {
     res.render('index.html');
 });
 
-app.get('/list', function (req, res) {
-    let sql = 'SELECT * FROM user_info';    
-    conn.query(sql, function (err, rows, fields) {
-        if(err) console.log('query is not excuted. select fail...\n' + err);
-        else res.render('list', {list : rows});
-    });
-});
 
 app.get('/login', function (req, res) {
   res.render('login');
@@ -101,8 +125,7 @@ app.get('/report', function (req, res) {
     conn.query(sql, function (err, rows, fields) {
         if(err) console.log('query is not excuted. select fail...\n' + err);
         else {
-            downloadFile('./public/videos/test.mp4');  //위치,파일 이름을 변경해서 받음! --> 상대주소로 쓰기!
-            res.render('report', {report : rows});
+          res.render('report', {report : rows});
         };
     });
 });

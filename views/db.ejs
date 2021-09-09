@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>게시글 리스트</h2>
+  <table border='1'>
+      <colgroup>
+          <col width='60'><col width='200'><col width='100'>
+      </colgroup>
+      <thead>
+          <tr>
+              <th>사용자</th>
+              <th>박스 번호</th>
+              <th>이메일</th>
+              <th>핸드폰 번호</th>
+          </tr>
+      </thead>
+      <tbody>
+          <% for(i = 0; i < db.length; i++) { 
+             %>
+          <tr>
+              <td><%=db[i].user_name %></td>
+              <td><%=db[i].box_number %></td>
+              <td><%=db[i].user_email %></td>
+              <td><%=db[i].phone_number %></td>
+              <td></td>
+          </tr>
+          <% } %>
+      </tbody>
+  </table boader='1'>
+
+</body>
+</html>

@@ -131,4 +131,12 @@ app.get('/report', function (req, res) {
 });
 
 
+app.get('/db', function (req, res) {                //db 확인용 
+    let sql = 'SELECT * FROM user_info';    
+    conn.query(sql, function (err, rows, fields) {
+        if(err) console.log('query is not excuted. select fail...\n' + err);
+        else res.render('db', {db : rows});
+    });
+});
+
 app.listen(3000, () => console.log('Server is running on port 3000...'));

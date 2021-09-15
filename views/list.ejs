@@ -5,8 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        /* 이미지에 캔버스를 겹쳐서 그릴때는 아래 주석 해제 */
+        canvas {
+            position: absolute;
+            
+        }
+
+        video {
+            position: absolute;
+        }
+        </style>
+
 </head>
 <body>
-    
+
+    <!-- <video id="video" width="1080" height="1920"  src="/videos/kakao (convert-video-online.com).mp4" type="video/mp4" crossorigin='use-credentials' muted playsinline></video> -->
+    <video id="video" width="1080" height="1920"  src="https://lifeflavor.s3.ap-northeast-2.amazonaws.com/dondo.mp4" type="video/mp4" controls muted playsinline crossorigin='use-credentials'></video>
+    <canvas id="canvas"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"> </script>
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById("canvas");
+        const context = canvas.getContext("2d");
+
+        // navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+        //     .then(function (mediaSource) {
+        //         video.srcObject = mediaSource;
+        //     });
+
+
+        video.play().then(
+        cocoSsd.load().then(model => {
+            predict();
+            function predict() {
+                context.drawImage(video, 0, 0);
+                model.detect(canvas).then(predictions => {
+                    console.log('Predictions: ', predictions);
+                    canvas.width = video.width;
+                    canvas.height = video.height-100;
+
+
+                    for (let i = 0; i < predictions.length; i++) {
+                        context.beginPath();
+                        context.lineWidth = 8;
+                        //party mode
+                        const color = Math.floor(Math.random() * 16777215).toString(16);
+                        context.strokeStyle = '#' + color
+                        //            context.strokeStyle = "#2fff00"
+                        context.rect(...predictions[i].bbox);
+                        context.stroke();
+                        context.font = '70px Arial';
+                        context.fillStyle = '#' + color;
+                        context.fillText(predictions[i].class + ' ' + parseInt(predictions[i].score * 100) + '%', predictions[i].bbox[0], predictions[i].bbox[1]);
+
+                    }
+                });
+                requestAnimationFrame(predict);
+            }
+            }
+        )
+        );
+    </script>
 </body>
+<!-- <script type="module" src="/js/flow.js"></script> -->
 </html>

@@ -5,6 +5,8 @@ let db_config = require(__dirname + '/config/database.js');
 let conn = db_config.init();
 let bodyParser = require('body-parser');
 let range_sql;
+const cors = require('cors');
+
 
 db_config.connect(conn);
 
@@ -18,33 +20,45 @@ app.use(bodyParser.urlencoded({extended : false}));
 
 
 app.use(express.static(__dirname + '/public'));
+//엑세스 허용 주소
+var whitelist = ['*']
+
+var corsOptions = {
+  origin: function(origin, callback){
+  var isWhitelisted = whitelist.indexOf(origin) !== -1;
+  callback(null, isWhitelisted); 
+  // callback expects two parameters: error and options 
+  },
+  credentials:true
+}
+
+app.use( cors(corsOptions) );
+
 
 
 
 
 //PYTHON !!!
-let runPy = new Promise(function(success, nosuccess) {
+// const { spawn } = require('child_process');
+// const pyProg = spawn('python', ['./public/python/test.py']); //파이썬 실행
+// pyProg.stdout.on('data', function(data) {
 
-    const { spawn } = require('child_process');
-    const pyprog = spawn('python', ['./public/python/test.py']);
+//     console.log(data.toString());
 
-    pyprog.stdout.on('data', function(data) {
+//     if(data.toString()==1){
+//     console.log("파이썬 = 1");
+//     res.redirect("/db");
+//     }
+//     else {
+//         console.log("파이썬 != 1");
+//         res.redirect("/");
+//     };
+// });
 
-        success(data);
-    });
-
-    pyprog.stderr.on('data', (data) => {
-
-        nosuccess(data);
-    });
-});
 
 //test!!!
 app.get('/list', (req, res) => {
-    console.log(runPy);
-    if(runPy=1){   //나중에 upload aws 로 바꾸기
-        res.redirect('/'); // 홈으로 가기
-    }
+    res.render("list");
 });
 
 

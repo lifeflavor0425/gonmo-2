@@ -21,8 +21,8 @@
 </head>
 <body>
 
-    <!-- <video id="video" width="1080" height="1920"  src="/videos/kakao (convert-video-online.com).mp4" type="video/mp4" crossorigin='use-credentials' muted playsinline></video> -->
-    <video id="video" width="1080" height="1920"  src="https://lifeflavor.s3.ap-northeast-2.amazonaws.com/dondo.mp4" type="video/mp4" controls muted playsinline crossorigin='use-credentials'></video>
+    <!-- <video id="video" width="1080" height="1920"  src="/videos/kakao (convert-video-online.com).mp4" type="video/mp4" crossorigin='anonymous' muted playsinline></video> -->
+    <video id="video" width="1280" height="1024"  src="https://lifeflavor.s3.ap-northeast-2.amazonaws.com/jun.mp4" type="video/mp4" autoplay controls muted playsinline crossorigin='anonymous' ></video>
     <canvas id="canvas"></canvas>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"> </script>
@@ -37,7 +37,7 @@
         //     });
 
 
-        video.play().then(
+        // video.play().then(
         cocoSsd.load().then(model => {
             predict();
             function predict() {
@@ -66,8 +66,8 @@
                 requestAnimationFrame(predict);
             }
             }
-        )
         );
+        // );
     </script>
 </body>
 <!-- <script type="module" src="/js/flow.js"></script> -->

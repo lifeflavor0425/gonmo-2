@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
   
-  <link defer rel="stylesheet" href="/css/report.css">
+  <link defer rel="stylesheet" href="/css/test.css">
 
 </head>
 <body>
@@ -39,21 +39,15 @@
     <div class="content">
       <div class="inner">
         <ul class="user_info">
-          <% for(i=0; i< 1; i++){  %>
-          <li class="logo" >USER: <%=report[i].user_name%> </li>
-          <li class="logo">BOX_NUMBER: <%=report[i].box_number%> </li>
-          <li class="logo">PHONE_NUMBER: <%=report[i].phone_number%> </li>
-          <% } %>
+          <li class="logo" >USER: test </li>
+          <li class="logo">PHONE_NUMBER: test </li>
         </ul>
 
         <div class="video_content">
 
           <!-- <video id="video" width="1080" height="1920"  src="/videos/kakao (convert-video-online.com).mp4" type="video/mp4" crossorigin='anonymous' muted playsinline></video> -->
-          <video id="video"  width="850" height="480" src="https://lifeflavor.s3.ap-northeast-2.amazonaws.com/dondo_s.mp4" type="video/mp4" autoplay controls muted playsinline crossorigin='anonymous' ></video>
+          <video id="video"  width="850" height="480" src="https://lifeflavor.s3.ap-northeast-2.amazonaws.com/kakos.mp4" type="video/mp4" autoplay controls muted playsinline crossorigin='anonymous' ></video>
           <canvas id="canvas" ></canvas>
-          <div>
-            <a href="https://lifeflavor.s3.ap-northeast-2.amazonaws.com/dondo.mp4"> 블랙박스 일반 영상 확인 </a>
-          </div>
           <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
           <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"> </script>
           <script>

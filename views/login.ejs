@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DONDO</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  
+  <!-- icon -->
+  <link rel="shortcut icon" href="#">
 
   <!-- google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,80 +20,75 @@
   <script defer src="/js/main.js"></script>
   
 </head>
-<body>
-    <!-- header -->
-    <header>
-      <div class="inner">
-        <div>
-          <a href="/" class="logo">
-            DONDO
-          </a>
-        </div>
-      </div>
-      <div class="line"></div>
-    </header>
-
-    <!-- content -->
-    <section class="signin">
-      <h1>LOGIN</h1>
-      <div class="signin__card">
-        <h2> 
-          <strong class="logo">Welcome!!</strong><br> <span class="logo">DONDO</span> 에 오신 것을 환영합니다.
-        </h2>
-        <form action="/equalAF" method="POST">
-          <input type="text" name="equal_phone"placeholder="'-'를 빼고 핸드폰 번호를 입력하세요"/>
-          <input type="password" name="equal_box" placeholder="박스 번호를 입력하세요." />
-          <input type="submit" value="로그인" />
-        </form>
-        <button type='button' id="modal_btn">회원가입</button>
-        <div class="black_bg"></div>
-        <div class="modal_wrap">
-
+  <body>
+      <!-- header -->
+      <header>
+        <div class="inner">
           <div>
-            <form action='/loginAF' method='post'>
-              사용자 : <input type='text' name='user_name'><br>
-              박스 번호 : <input type='text' name='box_number'><br>
-              이메일 : <input type='email' name='user_email'><br>
-              휴대폰 번호: <input type='text' name='phone_number'><br>
-              <button type='submit' class="btn btn-register">회원가입</button>
-              <input type="button"class="btn modal_close" value="닫기" />
-            </form>
+            <a href="/" class="logo">
+              DONDO
+            </a>
           </div>
-        <div>
-      </div>
-    </section>
+        </div>
+        <div class="line"></div>
+      </header>
 
+      <!-- content -->
+      <section class="signin">
+        <h1>LOGIN</h1>
+        <div class="signin__card">
+          <h2> 
+            <strong class="logo">Welcome!!</strong><br> <span class="logo">DONDO</span> 에 오신 것을 환영합니다.
+          </h2>
+          <form action="/equalAF" method="POST">
+            <input type="text" name="equal_phone"placeholder="'-'를 빼고 핸드폰 번호를 입력하세요"/>
+            <input type="password" name="equal_box" placeholder="박스 번호를 입력하세요." />
+            <input type="submit" value="로그인" />
+          </form>
+          <button type='button' id="modal_btn">회원가입</button>
+          <div class="black_bg"></div>
+          <div class="modal_wrap">
 
-<!-- FOOTER -->
-<footer>
-  <div class="line"></div>
+            <div>
+              <form action='/loginAF' method='post'>
+                사용자 : <input type='text' name='user_name'><br>
+                박스 번호 : <input type='text' name='box_number'><br>
+                이메일 : <input type='email' name='user_email'><br>
+                휴대폰 번호: <input type='text' name='phone_number'><br>
+                <button type='submit' class="btn btn-register">회원가입</button>
+                <input type="button"class="btn modal_close" value="닫기" />
+              </form>
+            </div>
+          <div>
+        </div>
+      </section>
 
-  <div class="inner">
+    <!-- FOOTER -->
+    <footer>
+      <div class="line"></div>
+      <div class="inner">
 
-    <ul class="menu">
-      <li><a href="javascript:void(0)" class="pink"> DONDO</a></li>
-      <li><a href="javascript:void(0)">박기원</a></li>
-      <li><a href="javascript:void(0)">이원석</a></li>
-      <li><a href="javascript:void(0)">유준혁</a></li>
-      <li><a href="javascript:void(0)">이건우</a></li>
-    </ul>
+        <ul class="menu">
+          <li><a href="javascript:void(0)" class="pink"> DONDO</a></li>
+          <li><a href="javascript:void(0)">박기원</a></li>
+          <li><a href="javascript:void(0)">유준혁</a></li>
+          <li><a href="javascript:void(0)">이건우</a></li>
+        </ul>
 
-    <div class="info">
-      <span>팀장(서버) : 박기원</span>
-      <span>백엔드(AI) : 이원석</span>
-      <span>하드웨어 : 유준혁</span>
-      <span>프론트엔드 : 이건우</span>
-      <span>TEL : 010)-@@@@-@@@@</span>
-      <span> 멘토 : 김신형</span>
-    </div>
-    <div class="video">
+        <div class="info">
+          <span>팀장(서버 및 총괄) : 박기원</span>
+          <span>하드웨어 & 백엔드 : 유준혁</span>
+          <span>프론트엔드 & 백엔드 : 이건우</span>
+          <span>TEL : 010)-@@@@-@@@@</span>
+          <span> 멘토 : 김신형</span>
+
+        </div>
       
-    </div>
-  </div>
-</footer>
+      </div>
+    </footer>
 
 
 
 
-</body>
+  </body>
 </html>

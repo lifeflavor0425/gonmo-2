@@ -108,6 +108,7 @@ app.post('/loginAF', function (req, res) {
     });
 });
 
+// 실제 사용
 app.post('/equalAF', function (req, res) {
   let body = req.body;
   console.log(body);
@@ -115,23 +116,30 @@ app.post('/equalAF', function (req, res) {
   let box=[body.equal_box];
   let sql = `select * from user_info where phone_number= ${phone} AND box_number =${box}`;
   console.log(sql);
-  range_sql=sql;  //전역변수 할당
-  const result= conn.query(sql, function(err, result ,field) {
-    if(err) console.log('query is not excuted. 일치실패...\n' + err); //에러
-    
-    else if(result.length != 0){ 
-        res.redirect('/report');  //일치하는 sql 있을경우
-     } 
-     else { 
-        res.write("<script>alert('login faild')</script>");  // 일치하는 sql 없을경우
-        res.write("<script>window.location=\"/login\"</script>");
- 
-         }
-     console.log(result.length);
+  // 보여주기용 test
+  if(phone =='test'){
+    res.redirect('test');
+  }
+  else {
+    range_sql=sql;  //전역변수 할당
+    const result= conn.query(sql, function(err, result ,field) {
+      if(err) console.log('query is not excuted. 일치실패...\n' + err); //에러
+      
+      else if(result.length != 0){ 
+          res.redirect('/report');  //일치하는 sql 있을경우
+      } 
+      else { 
+          res.write("<script>alert('login faild')</script>");  // 일치하는 sql 없을경우
+          res.write("<script>window.location=\"/login\"</script>");
+  
+          }
+      console.log(result.length);
 
-    
-  });
+      
+    });
+  };
 });
+
 
 
 app.get('/report', function (req, res) {

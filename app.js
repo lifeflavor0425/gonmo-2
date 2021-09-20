@@ -56,12 +56,6 @@ app.use( cors(corsOptions) );
 // });
 
 
-//test!!!
-app.get('/list', (req, res) => {
-    res.render("list");
-});
-
-
 // AWS!!!!!!!!!!!!1
 // const fs=require('fs');
 // const AWS = require('aws-sdk');
@@ -118,7 +112,7 @@ app.post('/equalAF', function (req, res) {
   console.log(sql);
   // 보여주기용 test
   if(phone =='test'){
-    res.redirect('test');
+    res.redirect('/test');
   }
   else {
     range_sql=sql;  //전역변수 할당
@@ -159,6 +153,10 @@ app.get('/db', function (req, res) {                //db 확인용
         if(err) console.log('query is not excuted. select fail...\n' + err);
         else res.render('db', {db : rows});
     });
+});
+
+app.get('/test', function (req, res) {
+  res.render('test');
 });
 
 app.listen(3000, () => console.log('Server is running on port 3000...'));

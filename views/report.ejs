@@ -67,7 +67,6 @@
               //     });
 
 
-              // video.play().then(
               cocoSsd.load().then(model => {
                   predict();
                   function predict() {
@@ -97,10 +96,36 @@
                   }
                   }
               );
-              // );
           </script>
-
         </div>
+
+        <!-- video_log 출력 -->
+        <div class="video_log">
+          <p id="txt">hi</p>
+        </div>
+        <script>
+          function readTextFile(file)
+          {
+              var rawFile = new XMLHttpRequest();
+              rawFile.open("GET", file, false);
+              rawFile.onreadystatechange = function ()
+              {
+                  if(rawFile.readyState === 4)
+                  {
+                      if(rawFile.status === 200 || rawFile.status == 0)
+                      {
+                          var allText = rawFile.responseText;
+                          var txt = document.getElementById("txt");
+                          txt.innerHTML=allText.replace(/\n/g, '<br/>');
+                      }
+                  }
+              }
+              rawFile.send(null);
+          }
+
+          readTextFile("/txt/test.txt");
+        </script>
+
       </div>
     </div>
   </section>

@@ -52,4 +52,21 @@
   height: auto;
 }
 
+.content .inner .video_log{
+  position: relative;
+  display: flex;
+  width: 500px;
+  left: 0;
+  right: 0;
+  top: 500px;
+  margin: auto;
+  padding: 20px;
+}
+.content .inner .video_log #txt {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  width: 300px;
+}
+
 

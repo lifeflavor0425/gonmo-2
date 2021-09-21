@@ -4,8 +4,9 @@ let app = express();
 let db_config = require(__dirname + '/config/database.js');
 let conn = db_config.init();
 let bodyParser = require('body-parser');
-let range_sql;
 const cors = require('cors');
+
+let range_sql;
 
 
 db_config.connect(conn);
@@ -57,27 +58,27 @@ app.use( cors(corsOptions) );
 
 
 // AWS!!!!!!!!!!!!1
-// const fs=require('fs');
-// const AWS = require('aws-sdk');
-// const id = 'AKIAXU3SCGJX3KBU42EI'; // 키 값
-// const pw = 'M36CFGm1CeW2LHIaNbdh0zyn7JXcqRsFOrLK7mr/'; //  시크릿 키
-// const bucket_name = 'lifeflavor'; //버킷 이름
-// const s3=new AWS.S3({
-//   accessKeyId: id,
-//   secretAccessKey: pw
-// });
+const fs=require('fs');
+const AWS = require('aws-sdk');
+const id = 'AKIAXU3SCGJX3KBU42EI'; // 키 값
+const pw = 'M36CFGm1CeW2LHIaNbdh0zyn7JXcqRsFOrLK7mr/'; //  시크릿 키
+const bucket_name = 'lifeflavor'; //버킷 이름
+const s3=new AWS.S3({
+  accessKeyId: id,
+  secretAccessKey: pw
+});
 
 //다운로드
-// const downloadFile=(fileName)=>{
-//     const params ={
-//       Bucket: bucket_name,
-//       Key: 'kakao.mp4', //you want to file in s3 안에 있는 파일 이름
-//     };
-//     s3.getObject(params, function(err,data){
-//       if(err){throw err;}
-//       fs.writeFileSync(fileName, data.Body.toString());
-//     });
-//   };
+const downloadFile=(fileName)=>{
+    const params ={
+      Bucket: bucket_name,
+      Key: 'test.txt', //you want to file in s3 안에 있는 파일 이름
+    };
+    s3.getObject(params, function(err,data){
+      if(err){throw err;}
+      fs.writeFileSync(fileName, data.Body.toString());
+    });
+  };
 
 
 app.get('/', function (req, res) {
@@ -141,6 +142,7 @@ app.get('/report', function (req, res) {
     conn.query(sql, function (err, rows, fields) {
         if(err) console.log('query is not excuted. select fail...\n' + err);
         else {
+          downloadFile('./public/txt/test.txt');  //위치,파일 이름을 변경해서 받음!
           res.render('report', {report : rows});
         };
     });
@@ -156,6 +158,7 @@ app.get('/db', function (req, res) {                //db 확인용
 });
 
 app.get('/test', function (req, res) {
+  downloadFile('./public/txt/test.txt');  //위치,파일 이름을 변경해서 받음!
   res.render('test');
 });
 

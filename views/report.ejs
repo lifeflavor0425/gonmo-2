@@ -51,9 +51,6 @@
           <!-- <video id="video" width="1080" height="1920"  src="/videos/kakao (convert-video-online.com).mp4" type="video/mp4" crossorigin='anonymous' muted playsinline></video> -->
           <video id="video"  width="850" height="480" src="https://lifeflavor.s3.ap-northeast-2.amazonaws.com/dondo_s.mp4" type="video/mp4" autoplay controls muted playsinline crossorigin='anonymous' ></video>
           <canvas id="canvas" ></canvas>
-          <div>
-            <a href="https://lifeflavor.s3.ap-northeast-2.amazonaws.com/dondo.mp4"> 블랙박스 일반 영상 확인 </a>
-          </div>
           <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
           <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"> </script>
           <script>
@@ -103,6 +100,9 @@
         <div class="video_log">
           <p id="txt">hi</p>
         </div>
+        <div class="video_pull">
+          <a href="https://lifeflavor.s3.ap-northeast-2.amazonaws.com/dondo.mp4"> 블랙박스 일반 영상 확인 </a>
+        </div>
         <script>
           function readTextFile(file)
           {
@@ -123,7 +123,7 @@
               rawFile.send(null);
           }
 
-          readTextFile("/txt/test.txt");
+          readTextFile("/txt/log.txt");
         </script>
 
       </div>

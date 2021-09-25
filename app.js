@@ -72,7 +72,7 @@ const s3=new AWS.S3({
 const downloadFile=(fileName)=>{
     const params ={
       Bucket: bucket_name,
-      Key: 'test.txt', //you want to file in s3 안에 있는 파일 이름
+      Key: 'upload.txt', //you want to file in s3 안에 있는 파일 이름
     };
     s3.getObject(params, function(err,data){
       if(err){throw err;}
@@ -142,7 +142,7 @@ app.get('/report', function (req, res) {
     conn.query(sql, function (err, rows, fields) {
         if(err) console.log('query is not excuted. select fail...\n' + err);
         else {
-          downloadFile('./public/txt/test.txt');  //위치,파일 이름을 변경해서 받음!
+          downloadFile('./public/txt/log.txt');  //위치,파일 이름을 변경해서 받음!
           res.render('report', {report : rows});
         };
     });
@@ -158,7 +158,7 @@ app.get('/db', function (req, res) {                //db 확인용
 });
 
 app.get('/test', function (req, res) {
-  downloadFile('./public/txt/test.txt');  //위치,파일 이름을 변경해서 받음!
+  downloadFile('./public/txt/log.txt');  //위치,파일 이름을 변경해서 받음!
   res.render('test');
 });
 

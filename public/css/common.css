@@ -69,7 +69,6 @@ header > .inner {
 	height: 100px;
 }
 header .inner div {
-	/* background-image: url("/images/구름2.png"); */
 	background-repeat: no-repeat;
 	background-size: contain;
 	width: 220px;

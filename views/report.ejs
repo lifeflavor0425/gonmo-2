@@ -30,6 +30,12 @@
           DONDO
         </a>
       </div>
+        <div class="video_pull">
+          <a class="btn" href="https://lifeflavor.s3.ap-northeast-2.amazonaws.com/dondo.mp4"> 블랙박스 일반 영상 확인 </a>
+        </div>
+        <div class="log_out">
+          <a class="btn" href="/login"> log out</a>
+        </div>
     </div>
     <div class="line"></div>
   </header>
@@ -38,17 +44,16 @@
   <section>
     <div class="content">
       <div class="inner">
-        <ul class="user_info">
+        <div class="user_info">
           <% for(i=0; i< 1; i++){  %>
-          <li class="logo" >USER: <%=report[i].user_name%> </li>
-          <li class="logo">BOX_NUMBER: <%=report[i].box_number%> </li>
-          <li class="logo">PHONE_NUMBER: <%=report[i].phone_number%> </li>
+          <span >USER: <%=report[i].user_name%> </span>
+          <span >BOX_NUMBER: <%=report[i].box_number%> </></span>
+          <span >PHONE_NUMBER: <%=report[i].phone_number%> </span>
           <% } %>
-        </ul>
+          </div>
 
         <div class="video_content">
 
-          <!-- <video id="video" width="1080" height="1920"  src="/videos/kakao (convert-video-online.com).mp4" type="video/mp4" crossorigin='anonymous' muted playsinline></video> -->
           <video id="video"  width="850" height="480" src="https://lifeflavor.s3.ap-northeast-2.amazonaws.com/dondo_s.mp4" type="video/mp4" autoplay controls muted playsinline crossorigin='anonymous' ></video>
           <canvas id="canvas" ></canvas>
           <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
@@ -98,10 +103,8 @@
 
         <!-- video_log 출력 -->
         <div class="video_log">
+          <p class="log_start"> 제어 로그<br/></p>
           <p id="txt">hi</p>
-        </div>
-        <div class="video_pull">
-          <a href="https://lifeflavor.s3.ap-northeast-2.amazonaws.com/dondo.mp4"> 블랙박스 일반 영상 확인 </a>
         </div>
         <script>
           function readTextFile(file)

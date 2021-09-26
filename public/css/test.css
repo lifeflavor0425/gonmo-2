@@ -1,5 +1,75 @@
 @import "/css/common.css";
 
+header .inner div {
+  background-repeat: no-repeat;
+	background-size: contain;
+	width: 220px;
+	position: absolute;
+  left: 0;
+  margin-left: 0;
+  top: 0;
+  bottom: 0;
+	justify-content: center;
+	align-items: center;
+}
+header .inner .logo {
+	margin-left: 40px;
+	margin-bottom: 70px;
+  font-size: 40px;
+}
+
+
+header .inner .video_pull {
+  position: absolute;
+  width: 300px;
+  left: 850px;
+  margin-right: 0;
+  padding: 20px;
+}
+
+header .inner .video_pull a{
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+}
+header .inner .video_pull a{
+  width: auto;
+  margin-bottom: 12px;
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  background-color: #2d2926;
+}
+header .inner .log_out{
+  position: absolute;
+  width: 300px;
+  left: 1200px;
+  margin-right: 0;
+  padding: 20px;
+}
+header .inner .log_out a{
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+}
+header .inner .log_out .btn{
+  margin-bottom: 12px;
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  background-color: #2d2926;
+}
+
 .content {
   position: relative;
   width: 100%;
@@ -9,35 +79,39 @@
 
 .content > .inner {
   position: relative;
-  height: 1500px;
+  height: 600px;
 }
 .content .inner .user_info {
   display: flex;
   position: relative;
-  flex-direction: column;
-  width: 500px;
+  /* flex-direction: column; */
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   margin: auto;
   padding: 20px;
+  font-size: 20px;
+  font-weight: 700;
 }
-.content .inner .user_info .logo{
+.content .inner .user_info span{
   display: block;
   position: relative;
-  height: 30px;
+  width: 500px;
   margin-bottom: 5px; 
   margin-left: 0;
 }
+.content .inner .user_info span::after{
+  content: " ";
+
+}
 .content .inner .video_content {
-  margin: 20px;
+  /* margin: 20px; */
 }
 .content .inner .video_content #video{
   position: absolute;
   /* display: block; */
   left: 0;
-  right: 0;
   margin: auto;
   width: auto;
   height: auto;
@@ -46,7 +120,6 @@
   position: absolute;
   /* display: block; */
   left: 0;
-  right: 0;
   margin: auto;
   width: auto;
   height: auto;
@@ -54,31 +127,28 @@
 
 .content .inner .video_log{
   position: relative;
-  display: flex;
-  width: 500px;
-  left: 0;
-  right: 0;
-  top: 500px;
-  margin: auto;
+  width: 400px;
+  left: 900px;
+  top: 50px;
   padding: 20px;
+  margin-right: 0;
+  border: black solid ;
+  border-radius: 10%;
+}
+.content .inner .video_log .log_start{
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  width: 400px;
+  right: 0;
+  margin-right: 0;
+  text-align: center;
 }
 .content .inner .video_log #txt {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 24px;
-  width: 500px;
-}
-.content .inner .video_pull {
-  position: relative;
-  width: 500px;
-  left: 0;
+  width: 400px;
   right: 0;
-  top: 500px;
-  margin: auto;
-  padding: 20px;
+  margin-right: 0;
 }
-.content .inner .video_pull a{
-  font-size: 20px;
-  font-weight: 700;
-}
-

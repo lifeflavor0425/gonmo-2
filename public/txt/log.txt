@@ -1,1 +1,8 @@
-18sec  : traffic accident detected 
+6sec  : handle right is detected 
+7sec  : handle right is detected 
+10sec  : handle right is detected 
+12sec  : handle right is detected 
+17sec  : break motion is detected 
+20sec  : break motion is detected 
+22sec  : break motion is detected 
+24sec  : traffic accident detected 
